@@ -1,0 +1,124 @@
+
+
+
+
+
+
+
+
+
+
+<?php 
+
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Controllers;
+use Illuminate\Http\Request;
+use Illuminate\Http\UploadedFile;
+//use Illuminate\Http\UploadedFile::resize;
+use Illuminate\Support\Facades\Storage; //para utilizar la clase storage
+use Intervention\Image\Facades\Image;
+use Intervention\Image\ImageManager;
+//use App\Http\Controllers\Input;
+use Illuminate\Support\Facades\Input;
+
+use App\Models\File;
+
+class ImageController extends Controller {
+
+    public function ResizeImage()
+    {
+       return view ('resize-image');
+    }
+
+    public function resizeImageSumit(Request $request)
+    {
+        // $image = $request->file;
+        // $filename = $image->getClientOriginalName();
+        // $image_resize = Image::make($image->getRealPath());
+
+        // Image::make($image->getRealPath())->resize(468, 249)->save('images/'.$filename);
+
+        // File::create([
+        //     'url'=>$filename
+        // ]); 
+         //return $image_resize;
+        // $filename->resize(300,300);
+        // $filename->save(public_path('images/'.$filename));
+
+
+        // $file = $request->file('file');
+        // $resizedImg = $file->resize(200,200);
+        // return $resizeImg;
+        // $imagen=$request->file('file')->resize(468, 249)->store('public/imagenes'); 
+        // $url = Storage::url($imagen);
+        
+        
+
+
+
+        $this->validate($request, [
+            'file' => 'required|image|max:3000|mimes:jpeg,jpg,png',
+        ]);
+
+        $file = $request->file('file');
+      
+
+
+
+        $path = $request->file('file')->resize(150,150)->store('uploads/file', 'public');
+        // Image::make(storage_path($path))->resize(150,150)->save();
+        return "subida";
+
+
+
+
+
+
+
+
+
+
+
+        $imagen=$request->file('file')->store('public/imagenes'); 
+        $url = Storage::url($imagen);
+        
+      
+
+        // File::create([
+        //     'url'=>$avatarPath
+        // ]); 
+
+        // //return redirect()->route('profile.index');
+        // return "exito";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // File::create([
+        //     'url'=>$url
+        // ]);     
+     
+       // return back();
+        // $image = request('file');
+        // $filename = date('Y-m-d-H:i:s')."-".$image->getClientOriginalName();
+        // File::make($image->getRealPath())->resize(468, 249)->save('images/'.$filename);
+        // $product->image = 'images/'.$filename;
+        // $product->save();
+
+        // return "exitoso";
+    }
+
+}

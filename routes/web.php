@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\ImageController;
+use App\Http\Controllers\StudentController;
+
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ImageController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -26,5 +29,11 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::resource('/files', App\Http\Controllers\Admin\FileController::class);
 
 
-Route::get('/ResizeImage', [ImageController::class, 'ResizeImage'])->name('resize-img');
-Route::post('/ResizeImage', [ImageController::class, 'resizeImageSumit'])->name('submit');
+Route::get('/resize-image',[ImageController::class,'resizeImage'])->name('resize-img');
+Route::post('/resize-image',[ImageController::class,'resizeImageSubmit'])->name('image-resize');
+
+
+
+Route::get('/add-student',[StudentController::class, 'addStudent'])->name('New');
+Route::post('/add-student',[StudentController::class, 'addStudentStore'])->name('NewStore');
+

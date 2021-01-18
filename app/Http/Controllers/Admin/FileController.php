@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage; //para utilizar la clase storage
 use Intervention\Image\Facades\Image;
 
 
+
 class FileController extends Controller
 {
    

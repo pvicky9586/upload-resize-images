@@ -43,14 +43,18 @@
 
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown-imagenes">
-                          <a class="dropdown-item {{ request()->routeIs('files.index') ? 'active' : ''}}" href="{{ route('files.index') }}">Ver Imagenes</a>
-                          <a class="dropdown-item {{ request()->routeIs('files.create') ? 'active' : ''}}" href="{{route('files.create')}}">Crear imagen</a>
+                          <a class="dropdown-item {{ request()->routeIs('files.index') ? 'active' : ''}}" href="{{ route('files.index') }}">All</a>
+                          <a class="dropdown-item {{ request()->routeIs('files.create') ? 'active' : ''}}" href="{{route('files.create')}}">Upload</a>
                        
                         </div>
                       </li>
 
                         <li class="naav-item">
                             <a href="{{ route('resize-img') }}" class="nav-link  {{ request()->routeIs('resize-img') ? 'active' : ''}}">Resize</a>
+                        </li>
+
+                          <li class="naav-item">
+                            <a href="{{ route('New') }}" class="nav-link  {{ request()->routeIs('New') ? 'active' : ''}}">Preview</a>
                         </li>
 
                     </ul>
